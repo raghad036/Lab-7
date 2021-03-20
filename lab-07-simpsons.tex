@@ -280,13 +280,51 @@ Knit, commit, and push to github.
 ## 4    Yes    Dead 139
 \end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{502}\SpecialCharTok{+}\DecValTok{230}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 732
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \DecValTok{230}\SpecialCharTok{/}\DecValTok{732}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3142077
+\end{verbatim}
+
+smoker no (732) : 31,4 (dead) \textgreater\textgreater{} (68,6) alive
+smoker yes (582) : 23,8 (dead) \textgreater\textgreater{} (76,2) alive
+
+i does not expected this result 6.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Whickham }\OtherTok{\textless{}{-}}\NormalTok{ Whickham}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{ (}\AttributeTok{age\_cat =} \FunctionTok{case\_when}\NormalTok{ (age }\SpecialCharTok{\textless{}=} \DecValTok{44} \SpecialCharTok{\textasciitilde{}} \StringTok{"18{-}44"}\NormalTok{, age }\SpecialCharTok{\textgreater{}} \FloatTok{44.} \SpecialCharTok{\&}\NormalTok{ age }\SpecialCharTok{\textless{}=} \DecValTok{64} \SpecialCharTok{\textasciitilde{}} \StringTok{"45{-}64"}\NormalTok{, age }\SpecialCharTok{\textgreater{}} \DecValTok{64} \SpecialCharTok{\textasciitilde{}} \StringTok{"65+"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{5}
+\setcounter{enumi}{6}
 \tightlist
 \item
-\item
 \end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{Whickham, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{outcome, }\AttributeTok{y=}\NormalTok{smoker,}\AttributeTok{color=}\NormalTok{smoker, }\AttributeTok{fill=}\NormalTok{age\_cat)) }\SpecialCharTok{+} \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat=}\StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+}\FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{age\_cat)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab-07-simpsons_files/figure-latex/plot_smokeVSincome_3-1.pdf}
 
 Knit, commit, and push to github.
 
